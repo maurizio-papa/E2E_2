@@ -7,7 +7,6 @@ from TriDet.libs.utils import (train_one_epoch, valid_one_epoch, ANETdetection,
                         fix_random_seed, ModelEma)
 
 def load_detector(config):
-
     model = TriDet(
             backbone_type = 'SGP',  # a string defines which backbone we use
             fpn_type  = 'identity',  # a string defines which fpn we use
