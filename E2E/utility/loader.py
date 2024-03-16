@@ -18,9 +18,10 @@ class EpicKitchenLoader(Dataset):
         self.num_classes = num_classes
         self.label_dict = None
 
-    
 
         dict_db, label_dict = self._load_json_db(self.json_file)
+        self.label_dict = label_dict
+
         empty_label_ids = self.find_empty_cls(self.label_dict, num_classes)
         
         self.dict_db = dict_db
