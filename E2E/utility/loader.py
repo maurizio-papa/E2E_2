@@ -19,9 +19,11 @@ class EpicKitchenLoader(Dataset):
 
     
 
-        self.dict_db, self.label_dict = self._load_json_db(self.json_file)
+        dict_db, label_dict = self._load_json_db(self.json_file)
         empty_label_ids = self.find_empty_cls(self.label_dict, num_classes)
-
+        
+        self.dict_db = dict_db
+        self.label_dict = label_dict
  
         self.data_list = self.dict_db
         self.db_attributes = {
@@ -29,6 +31,8 @@ class EpicKitchenLoader(Dataset):
             'tiou_thresholds': np.linspace(0.1, 0.5, 5),
             'empty_label_ids': empty_label_ids
         }
+
+
 
     def find_empty_cls(self, label_dict, num_classes):
         # find categories with out a data sample
