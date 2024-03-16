@@ -37,7 +37,7 @@ def load_backbone(ckpt_path):
         context_length=old_args.context_length,
         vocab_size=old_args.vocab_size,
         patch_dropout= 0,
-        num_frames= 16,
+        num_frames= 1,
         drop_path_rate= 0.1,
         use_fast_conv1= False,
         use_flash_attn= False,
