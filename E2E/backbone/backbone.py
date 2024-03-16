@@ -32,24 +32,29 @@ def load_backbone(ckpt_path):
     print(f'creating model: {old_args.model}')
 
     model = getattr(model_clip, old_args.model)(
-        pretrained=old_args.load_visual_pretrained,
-        pretrained2d=old_args.load_visual_pretrained is not None,
-        text_use_cls_token=old_args.use_cls_token,
-        project_embed_dim=old_args.project_embed_dim,
-        timesformer_gated_xattn=False,
-        timesformer_freeze_space=False,
+        freeze_temperature=True,
+        use_grad_checkpointing= False,
+        context_length=old_args.context_length,
+        vocab_size=old_args.vocab_size,
+        patch_dropout= 0,
         num_frames= 16,
         drop_path_rate= 0.1,
+        use_fast_conv1= False,
+        use_flash_attn= False,
+        use_quick_gelu=True,
+        project_embed_dim=old_args.project_embed_dim,
+        pretrain_zoo=old_args.pretrain_zoo,
+        pretrain_path=old_args.pretrain_path,
     )
-    if 'TIMESFORMER' in old_args.model or 'EGOVLP' in old_args.model:
-        print('=> inflating PE in models due to different frame numbers')
-        state_dict = inflate_positional_embeds(
+    model.logit_scale.requires_grad = False
+    print('=> inflating PE in models due to different frame numbers')
+    state_dict = inflate_positional_embeds(
         model.state_dict(), state_dict,
         num_frames= 16,
         load_temporal_fix='bilinear',
-        )
+    )
     model.load_state_dict(state_dict, strict=True)
-    print("=> loaded resume checkpoint '{}' (epoch {})".format(BASE_MODEL, ckpt['epoch']))
+    print("=> loaded resume checkpoint '{}' (epoch {})".format(ckpt_path, ckpt['epoch']))
 
 
     model = model_clip.VideoClassifier(
@@ -61,7 +66,7 @@ def load_backbone(ckpt_path):
 
 
 def main():
-    load_backbone('C:/Users/maurizio.papa/Downloads/avion_finetune_cls_lavila_vitb_best.pt')
+    load_backbone('')
 
 
 if __name__ == '__main__':
