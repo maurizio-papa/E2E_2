@@ -10,7 +10,7 @@ import torch
 import datetime
 import pickle
 
-def train_one_epoch(model, optimizer,  scheduler, data_loader, cfg, optimizer=None, scheduler=None):   #TODO add epochs
+def train_one_epoch(model, optimizer,  scheduler, data_loader, cfg, ):  
 
     DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
