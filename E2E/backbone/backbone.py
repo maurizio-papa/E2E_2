@@ -48,10 +48,10 @@ def load_backbone(ckpt_path):
     )
     model.logit_scale.requires_grad = False
     print('=> inflating PE in models due to different frame numbers')
-    state_dict = inflate_positional_embeds(
-        model.state_dict(), state_dict,
-        num_frames= 16,
-        load_temporal_fix='bilinear',
+   # state_dict = inflate_positional_embeds(
+   #     model.state_dict(), state_dict,
+   #     num_frames= 16,
+   #     load_temporal_fix='bilinear',
     )
     model.load_state_dict(state_dict, strict=True)
     print("=> loaded resume checkpoint '{}' (epoch {})".format(ckpt_path, ckpt['epoch']))
