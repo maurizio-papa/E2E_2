@@ -47,7 +47,8 @@ def load_backbone(ckpt_path):
     #    pretrain_zoo= 'openai',
     #    pretrain_path= None,
     #)
-    model.logit_scale.requires_grad = False
+    #model.logit_scale.requires_grad = False
+    
     print('=> inflating PE in models due to different frame numbers')
     state_dict = inflate_positional_embeds(
         model.state_dict(), state_dict,
