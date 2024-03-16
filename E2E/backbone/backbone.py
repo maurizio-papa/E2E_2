@@ -43,8 +43,8 @@ def load_backbone(ckpt_path):
         use_flash_attn= False,
         use_quick_gelu=True,
         project_embed_dim=old_args.project_embed_dim,
-        #pretrain_zoo=old_args.pretrain_zoo,
-        #pretrain_path=old_args.pretrain_path,
+        pretrain_zoo= 'openai',
+        pretrain_path= None,
     )
     model.logit_scale.requires_grad = False
     print('=> inflating PE in models due to different frame numbers')
