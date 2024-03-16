@@ -1,7 +1,6 @@
 from collections import OrderedDict
 
 import torch
-import torch.cuda.amp as amp
 import torch.nn.functional as F
 from torch.distributed.optim import ZeroRedundancyOptimizer
 import torchvision
@@ -21,9 +20,8 @@ from backbone.AVION.avion.optim.schedulers import cosine_scheduler
 import backbone.AVION.avion.utils.distributed as dist_utils
 
 
-def load_backbone():
+def load_backbone(ckpt_path):
 
-    ckpt_path = '.....'
     ckpt = torch.load(ckpt_path, map_location='cpu')
     state_dict = OrderedDict()
     for k, v in ckpt['state_dict'].items():
@@ -64,3 +62,10 @@ def load_backbone():
         )
     return model
 
+
+def main():
+    load_backbone('C:/Users/maurizio.papa/Downloads/avion_finetune_cls_lavila_vitb_best.pt')
+
+
+if __name__ == '__main__':
+    main()

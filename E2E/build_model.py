@@ -9,7 +9,7 @@ class TAL_model(torch.nn.Module):
         self.chunk_size = chunk_size
         self.sampling_ratio = sampling_ratio
           
-        self.feature_extractor = load_backbone()
+        self.feature_extractor = load_backbone('/tesi/avion_finetune_cls_lavila_vitb_best.pt')
         self.base_detector = load_detector()
 
     def forward(self, video_data, feat_grad=None, stage=0):
