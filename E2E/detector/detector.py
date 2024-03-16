@@ -1,8 +1,8 @@
-from TriDet.libs.core import load_config
-from TriDet.libs.modeling import meta_archs
-from TriDet.libs.datasets import make_dataset, make_data_loader
-from TriDet.libs.modeling import TriDet
-from TriDet.libs.utils import (train_one_epoch, valid_one_epoch, ANETdetection,
+from .TriDet.libs.core import load_config
+from .TriDet.libs.modeling import meta_archs
+from .TriDet.libs.datasets import make_dataset, make_data_loader
+from .TriDet.libs.modeling import TriDet
+from .TriDet.libs.utils import (train_one_epoch, valid_one_epoch, ANETdetection,
                         save_checkpoint, make_optimizer, make_scheduler,
                         fix_random_seed, ModelEma)
 
