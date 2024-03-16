@@ -33,8 +33,8 @@ def train(cfg, epochs = 8):
     cfg = load_config(cfg)
 
     # build dataset and dataloader
-    train_dataset = EpicKitchenLoader(feature_folder = 'ext/tensor', 
-                                      json_file = 'ext/annotations/epic_kitchens_100_noun.json',
+    train_dataset = EpicKitchenLoader(feature_folder = '/ext/tensor', 
+                                      json_file = '/ext/annotations/epic_kitchens_100_noun.json',
                                       split = 'training',
                                       num_frames = '16',
                                       feat_stride = 8,
