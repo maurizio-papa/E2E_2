@@ -16,15 +16,14 @@ class EpicKitchenLoader(Dataset):
         self.feat_stride = feat_stride
         self.default_fps = default_fps
         self.num_classes = num_classes
+
     
 
-        dict_db, label_dict = self._load_json_db(self.json_file)
-        empty_label_ids = self.find_empty_cls(label_dict, num_classes)
+        self.dict_db, self.label_dict = self._load_json_db(self.json_file)
+        empty_label_ids = self.find_empty_cls(self.label_dict, num_classes)
 
-        self.label_dict  = label_dict
-        self.dict_db = dict_db
-        
-        self.data_list = dict_db
+ 
+        self.data_list = self.dict_db
         self.db_attributes = {
             'dataset_name': 'epic-kitchens-100',
             'tiou_thresholds': np.linspace(0.1, 0.5, 5),
