@@ -16,6 +16,7 @@ class EpicKitchenLoader(Dataset):
         self.feat_stride = feat_stride
         self.default_fps = default_fps
         self.num_classes = num_classes
+        self.label_dict = None
 
     
 
