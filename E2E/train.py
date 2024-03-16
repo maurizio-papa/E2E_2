@@ -35,7 +35,7 @@ def train(cfg, epochs = 8):
 
     # build dataset and dataloader
     train_dataset = EpicKitchenLoader(feature_folder = 'Z:\tensor', 
-                                      json_folder = 'Z:\annotations\epic_kitchens_100_noun.json',
+                                      json_file = 'Z:\annotations\epic_kitchens_100_noun.json',
                                       split = 'training',
                                       num_frames = '16',
                                       feat_stride = 8)
