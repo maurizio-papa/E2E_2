@@ -31,7 +31,7 @@ def load_backbone(ckpt_path):
 
     print(f'creating model: {old_args.model}')
 
-    model = getattr(model, old_args.model)(
+    model = getattr(model_clip, old_args.model)(
         pretrained=old_args.load_visual_pretrained,
         pretrained2d=old_args.load_visual_pretrained is not None,
         text_use_cls_token=old_args.use_cls_token,
