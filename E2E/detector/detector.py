@@ -1,4 +1,4 @@
-from .TriDet.libs.modeling import TriDet
+from .detector.TriDet.libs.modeling import TriDet
 
 def load_detector(config):
     model = TriDet(

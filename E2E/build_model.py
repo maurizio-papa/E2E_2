@@ -77,7 +77,7 @@ class TAL_model(torch.nn.Module):
                 index=snippet_idx.view(B, 1, self.chunk_size).repeat(1, feat_grad.shape[1], 1),
             )
             self.feature_extractor = self.feature_extractor.train()
-            with torch.set_grad_enabled(train):
+            with torch.set_grad_enabled(True):
                 video_feat_chunk = self.feature_extractor(video_data_chunk)
             assert video_feat_chunk.shape == feat_grad_chunk.shape
 
