@@ -1,21 +1,22 @@
 import torch 
 import json 
 import os 
+import numpy as np
 
 from torch.utils.data import Dataset
 
 class EpicKitchenLoader(Dataset):
 
-    def __init__(feature_folder, json_file, split, num_frames, feat_stride, default_fps):
+    def __init__(self, feature_folder, json_file, split, num_frames, feat_stride, default_fps, num_classes):
 
-        self.feature_folder = feature_folder,
-        self.json_file = json_file,
-        self.split = split,
-        self.label_dict  = label_dict,
-        self.num_frames = num_frames,
-        self.feat_stride = feat_stride,
-        self.default_fps = default_fps,
-        self.num_classes = num_classes,
+        self.feature_folder = feature_folder
+        self.json_file = json_file
+        self.split = split
+        self.label_dict  = label_dict
+        self.num_frames = num_frames
+        self.feat_stride = feat_stride
+        self.default_fps = default_fps
+        self.num_classes = num_classes
 
         dict_db, label_dict = self._load_json_db(self.json_file)
         empty_label_ids = self.find_empty_cls(label_dict, num_classes)
