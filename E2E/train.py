@@ -28,7 +28,6 @@ cfg_optimizer =  {
                  }
 
 
-
 def train(cfg, epochs = 8):
 
     cfg = load_config(cfg)
@@ -38,7 +37,9 @@ def train(cfg, epochs = 8):
                                       json_file = 'Z:\annotations\epic_kitchens_100_noun.json',
                                       split = 'training',
                                       num_frames = '16',
-                                      feat_stride = 8)
+                                      feat_stride = 8,
+                                      default_fps = 30,
+                                      num_classes = 97)
 
     train_loader = torch.utils.data.DataLoader(
         train_dataset,
