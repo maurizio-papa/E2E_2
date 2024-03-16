@@ -12,7 +12,6 @@ class EpicKitchenLoader(Dataset):
         self.feature_folder = feature_folder
         self.json_file = json_file
         self.split = split
-        self.label_dict  = label_dict
         self.num_frames = num_frames
         self.feat_stride = feat_stride
         self.default_fps = default_fps
@@ -21,6 +20,9 @@ class EpicKitchenLoader(Dataset):
 
         dict_db, label_dict = self._load_json_db(self.json_file)
         empty_label_ids = self.find_empty_cls(label_dict, num_classes)
+
+        self.label_dict  = label_dict
+        self.dict_db = dict_db
         
         self.data_list = dict_db
         self.db_attributes = {
