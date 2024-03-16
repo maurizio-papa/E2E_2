@@ -31,7 +31,7 @@ def load_backbone(ckpt_path):
 
     print(f'creating model: {old_args.model}')
 
-    model = getattr(model_clip, old_args.model)
+    model = getattr(model_clip, old_args.model)()
     #(
     #    freeze_temperature=True,
     #    use_grad_checkpointing= False,
@@ -48,7 +48,7 @@ def load_backbone(ckpt_path):
     #    pretrain_path= None,
     #)
     #model.logit_scale.requires_grad = False
-    
+
     print('=> inflating PE in models due to different frame numbers')
     state_dict = inflate_positional_embeds(
         model.state_dict(), state_dict,
