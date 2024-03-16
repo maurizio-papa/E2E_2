@@ -37,14 +37,14 @@ def load_backbone(ckpt_path):
         context_length=old_args.context_length,
         vocab_size=old_args.vocab_size,
         patch_dropout= 0,
-        num_frames= 1,
+        num_frames= 16,
         drop_path_rate= 0.1,
         use_fast_conv1= False,
         use_flash_attn= False,
         use_quick_gelu=True,
         project_embed_dim=old_args.project_embed_dim,
-        pretrain_zoo=old_args.pretrain_zoo,
-        pretrain_path=old_args.pretrain_path,
+        #pretrain_zoo=old_args.pretrain_zoo,
+        #pretrain_path=old_args.pretrain_path,
     )
     model.logit_scale.requires_grad = False
     print('=> inflating PE in models due to different frame numbers')
