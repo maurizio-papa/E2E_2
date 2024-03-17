@@ -47,7 +47,7 @@ def train_one_epoch(model, optimizer, epoch,  scheduler, data_loader):
         batch_time = time.time() - end
         end = time.time()
 
-    save_checkpoint(model, epoch, scheduler, optimizer)
+    #save_checkpoint(model, epoch, scheduler, optimizer)
 
 
 def save_checkpoint(model, epoch, scheduler, optimizer):
