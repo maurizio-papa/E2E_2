@@ -82,3 +82,4 @@ def load_model(BASE_MODEL, FINETUNED_MODEL):
             dropout= 0.0,
             num_classes_list = [97, 300, 3806]
         )
+    return model 
