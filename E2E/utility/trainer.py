@@ -17,8 +17,8 @@ def train_one_epoch(model, optimizer, epoch,  scheduler, data_loader):
     model.train()
     max_iteration = len(data_loader)
 
-    for video_data in enumerate(data_loader):
-        print(video_data)
+    for idx, video_data in enumerate(data_loader):
+        print(idx)
         video_data = video_data.to(DEVICE)
 
         # stage 1: sequentially forward the backbone
