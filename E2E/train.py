@@ -28,9 +28,7 @@ cfg_optimizer =  {
                  }
 
 
-def train(cfg, epochs = 8):
-
-    cfg = load_config(cfg)
+def train(epochs = 8):
 
     # build dataset and dataloader
     train_dataset = EpicKitchenLoader(feature_folder = '/ext/tensor', 
@@ -61,7 +59,7 @@ def train(cfg, epochs = 8):
     scheduler = make_scheduler(optimizer, cfg_optimizer, num_iters_per_epoch)    
 
     for epoch in range(epochs):
-        train_one_epoch(model, train_loader, optimizer, scheduler)
+        train_one_epoch(model, ,epoch, train_loader, optimizer, scheduler)
 
 
 if __name__ == "__main__":

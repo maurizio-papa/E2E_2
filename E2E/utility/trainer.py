@@ -10,13 +10,12 @@ import torch
 import datetime
 import pickle
 
-def train_one_epoch(model, optimizer,  scheduler, data_loader, cfg, ):  
+def train_one_epoch(model, optimizer, epoch,  scheduler, data_loader):  
 
     DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
     model.train()
     max_iteration = len(data_loader)
-    cfg = load_config(cfg)
 
     for video_data in enumerate(data_loader):
 
@@ -51,7 +50,7 @@ def train_one_epoch(model, optimizer,  scheduler, data_loader, cfg, ):
     save_checkpoint(model, epoch, scheduler, optimizer)
 
 
-def save_checkpoint(model, epoch, cfg, scheduler, optimizer):
+def save_checkpoint(model, epoch, scheduler, optimizer):
 
     state = {
         "epoch": epoch,
