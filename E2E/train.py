@@ -59,7 +59,7 @@ def train(epochs = 8):
     scheduler = make_scheduler(optimizer, cfg_optimizer, num_iters_per_epoch)    
 
     for epoch in range(epochs):
-        train_one_epoch(model, epoch, train_loader, optimizer, scheduler)
+        train_one_epoch(model, optimizer, epoch, scheduler, train_loader)
 
 
 if __name__ == "__main__":
