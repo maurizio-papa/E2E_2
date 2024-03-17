@@ -48,6 +48,8 @@ def train(epochs = 8):
         drop_last=True,
     )
 
+    print(train_loader.dict_db)
+
     # build model 
     model = TAL_model(chunk_size = 4, sampling_ratio = 0.3)
 

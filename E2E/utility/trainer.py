@@ -58,7 +58,7 @@ def save_checkpoint(model, epoch, scheduler, optimizer):
         "scheduler": scheduler.state_dict(),
         "optimizer": optimizer.state_dict(),
     }
-    checkpoint_dir = "./exps/%s/checkpoint/" % (exp_name)
+    checkpoint_dir = "./exps/%s/checkpoint/" 
 
     if not os.path.exists(checkpoint_dir):
         os.system("mkdir -p %s" % (checkpoint_dir))
