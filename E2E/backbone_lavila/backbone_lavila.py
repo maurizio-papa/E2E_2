@@ -18,7 +18,7 @@ import torchvision.transforms._transforms_video as transforms_video
 from sklearn.metrics import confusion_matrix
 import wandb
 
-from download_videos_and_convert_to_tensor.untar_img_and_convert_to_h5 import load_images_from_hdf5
+from .download_videos_and_convert_to_tensor.untar_img_and_convert_to_h5 import load_images_from_hdf5
 
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
