@@ -32,22 +32,22 @@ def load_backbone(ckpt_path):
     print(f'creating model: {old_args.model}')
 
     model = getattr(model_clip, old_args.model)()
-    #(
-    #    freeze_temperature=True,
-    #    use_grad_checkpointing= False,
-    #    context_length=old_args.context_length,
-    #    vocab_size=old_args.vocab_size,
-    #    patch_dropout= 0,
-    #    num_frames= 16,
-    #    drop_path_rate= 0.1,
-    #    use_fast_conv1= False,
-    #    use_flash_attn= False,
-    #    use_quick_gelu=True,
-    #    project_embed_dim=old_args.project_embed_dim,
-    #    pretrain_zoo= 'openai',
-    #    pretrain_path= None,
-    #)
-    #model.logit_scale.requires_grad = False
+    (
+        freeze_temperature=True,
+        use_grad_checkpointing= False,
+        context_length=old_args.context_length,
+        vocab_size=old_args.vocab_size,
+        patch_dropout= 0,
+        num_frames= 16,
+        drop_path_rate= 0.1,
+        use_fast_conv1= False,
+        use_flash_attn= False,
+        use_quick_gelu=True,
+        project_embed_dim=old_args.project_embed_dim,
+        pretrain_zoo= 'openai',
+        pretrain_path= None,
+    )
+    model.logit_scale.requires_grad = False
 
     print('=> inflating PE in models due to different frame numbers')
     state_dict = inflate_positional_embeds(
