@@ -2,7 +2,7 @@ import torch
 import torchvision.models as models
 
 # Load the checkpoint
-checkpoint = torch.load('/tesi/avion_pretrain_lavila_vitb_best.pt')
+checkpoint = torch.load('/tesi/avion_pretrain_lavila_vitb_best.pt', map_location=torch.device('cpu'))
 
 # If the checkpoint contains the state_dict of the model
 if 'state_dict' in checkpoint:
