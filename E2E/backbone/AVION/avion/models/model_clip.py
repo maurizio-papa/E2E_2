@@ -132,7 +132,7 @@ def CLIP_VITB16(
         print("unexpected_keys: ", unexpected_keys)
     elif pretrain_zoo == "open_clip":
         assert pretrain_path is not None
-        state_dict = torch.load(pretrain_path)
+        state_dict = torch.load(pretrain_path, map_location='cpu')
         print("=> loading open_clip model")
         remapped_state_dict = remap_keys_from_open_clip_to_vit(state_dict, use_fast_conv1=use_fast_conv1, use_flash_attn=use_flash_attn)
         missing_keys, unexpected_keys = model.load_state_dict(remapped_state_dict, strict=False)
