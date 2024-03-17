@@ -109,7 +109,7 @@ class EpicKitchenLoader(Dataset):
                          'labels' : labels
             }, )
 
-            return dict_db, label_dict
+        return dict_db, label_dict
     
     def load_images_from_hdf5(self, input_hdf5_file):
 
