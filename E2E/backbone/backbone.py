@@ -31,8 +31,7 @@ def load_backbone(ckpt_path):
 
     print(f'creating model: {old_args.model}')
 
-    model = getattr(model_clip, old_args.model)()
-    (
+    model = getattr(model_clip, old_args.model)(
         freeze_temperature=True,
         use_grad_checkpointing= False,
         context_length=old_args.context_length,
