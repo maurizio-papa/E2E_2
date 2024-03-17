@@ -11,14 +11,14 @@ import torch.nn as nn
 import torch.nn.functional as F
 from transformers import DistilBertModel, GPT2LMHeadModel
 
-import lavila.models.loss as loss
-from lavila.models.gpt2_gated import GPT2LMHeadModel as GatedGPT2LMHeadModel
-from lavila.models.gpt2_gated import augment_gpt2_config
-from lavila.models.narrator import VCLM_HF
-from lavila.models.openai_clip import load as load_openai_clip
-from lavila.models.openai_model import QuickGELU, Transformer
-from lavila.models.timesformer import SpaceTimeTransformer
-from lavila.models.utils import remap_keys, rsetattr
+import  backbone.lavila_2.models.loss as loss
+from .lavila_2.models.gpt2_gated import GPT2LMHeadModel as GatedGPT2LMHeadModel
+from .lavila_2.models.gpt2_gated import augment_gpt2_config
+from .lavila_2.models.narrator import VCLM_HF
+from .lavila_2.models.openai_clip import load as load_openai_clip
+from .lavila_2.models.openai_model import QuickGELU, Transformer
+from .lavila_2.models.timesformer import SpaceTimeTransformer
+from .lavila_2.models.utils import remap_keys, rsetattr
 
 
 class VideoClassifier(nn.Module):
