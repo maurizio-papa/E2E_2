@@ -1,6 +1,6 @@
 from detector.TriDet.libs.modeling.meta_archs import TriDet
 
-def load_detector(config):
+def load_detector():
     model = TriDet(
             backbone_type = 'SGP',  # a string defines which backbone we use
             fpn_type  = 'identity',  # a string defines which fpn we use
