@@ -1,5 +1,5 @@
 import torch
-from backbone.backbone import  load_backbone
+from backbone_lavila.backbone_lavila import  load_backbone
 from detector.detector import load_detector
 
 
@@ -9,7 +9,7 @@ class TAL_model(torch.nn.Module):
         self.chunk_size = chunk_size
         self.sampling_ratio = sampling_ratio
           
-        self.feature_extractor = load_backbone('/tesi/avion_pretrain_lavila_vitb_best.pt')
+        self.feature_extractor = load_backbone('/tesi/clip_openai_timesformer_base.narrator_rephraser.ep_0005.md5sum_d73a9c.pth')
         self.base_detector = load_detector()
 
     def forward(self, video_data, feat_grad=None, stage=0):
