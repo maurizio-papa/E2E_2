@@ -58,6 +58,7 @@ def train(epochs = 8):
      
     # schedule
     num_iters_per_epoch = len(train_loader) 
+    print(num_iters_per_epoch)
     scheduler = make_scheduler(optimizer, cfg_optimizer, num_iters_per_epoch)    
 
     for epoch in range(epochs):
