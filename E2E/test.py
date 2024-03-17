@@ -10,10 +10,9 @@ if 'state_dict' in checkpoint:
 else:
     state_dict = checkpoint  # The checkpoint directly contains the state_dict
 
-# Create an instance of your model
-model = models.YourModel()  # Replace YourModel with your model class
+model = torch.nn.Module()
+model.load_state_dict(state_dict) # Replace YourModel with your model class
 
 # Load the model parameters from the checkpoint
-model.load_state_dict(state_dict)
 
 print(model)
