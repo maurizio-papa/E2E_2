@@ -27,20 +27,20 @@ FEATURE_DIR = 'features_lavila'
 BASE_MODEL =  'clip_openai_timesformer_base.narrator_rephraser.ep_0005.md5sum_d73a9c.pth'
 FINETUNED_MODEL = 'clip_openai_timesformer_base.ft_ek100_cls.ep_0100.md5sum_4e3575.pth'
 
-from lavila_2.data import datasets
-from lavila_2.data.video_transforms import Permute, SpatialCrop, TemporalCrop
-from lavila_2.models import models
-from lavila_2.models.tokenizer import (MyBertTokenizer, MyDistilBertTokenizer, MyGPT2Tokenizer, SimpleTokenizer)
-from lavila_2.models.utils import inflate_positional_embeds
-from lavila_2.utils import distributed as dist_utils
-from lavila_2.utils.evaluation import accuracy, get_mean_accuracy
-from lavila_2.utils.meter import AverageMeter, ProgressMeter
-from lavila_2.utils.preprocess import generate_label_map
-from lavila_2.utils.random import random_seed
-from lavila_2.utils.scheduler import cosine_scheduler
-from lavila_2.utils.evaluation_ek100cls import get_marginal_indexes, marginalize
-from lavila_2.models.utils import inflate_positional_embeds
-from lavila_2.models import models
+from .lavila_2.data import datasets
+from .lavila_2.data.video_transforms import Permute, SpatialCrop, TemporalCrop
+from .lavila_2.models import models
+from .lavila_2.models.tokenizer import (MyBertTokenizer, MyDistilBertTokenizer, MyGPT2Tokenizer, SimpleTokenizer)
+from .lavila_2.models.utils import inflate_positional_embeds
+from .lavila_2.utils import distributed as dist_utils
+from .lavila_2.utils.evaluation import accuracy, get_mean_accuracy
+from .lavila_2.utils.meter import AverageMeter, ProgressMeter
+from .lavila_2.utils.preprocess import generate_label_map
+from .lavila_2.utils.random import random_seed
+from .lavila_2.utils.scheduler import cosine_scheduler
+from .lavila_2.utils.evaluation_ek100cls import get_marginal_indexes, marginalize
+from .lavila_2.models.utils import inflate_positional_embeds
+from .lavila_2.models import models
 
 def load_backbone(BASE_MODEL):
     """
