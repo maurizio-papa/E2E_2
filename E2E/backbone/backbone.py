@@ -33,7 +33,7 @@ def load_backbone(ckpt_path):
 
     model = getattr(model_clip, old_args.model)(
         freeze_temperature=True,
-        use_grad_checkpointing= False,
+        use_grad_checkpointing= True,
         context_length=old_args.context_length,
         vocab_size=old_args.vocab_size,
         patch_dropout= 0,
