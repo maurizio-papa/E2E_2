@@ -11,7 +11,7 @@ def load_detector():
             max_buffer_len_factor = 2304,  # max buffer size (defined a factor of max_seq_len)
             n_sgp_win_size = 1,  # window size w for sgp
             embd_kernel_size = 3,  # kernel size of the embedding network
-            embd_di = 512,  # output feat channel of the embedding network
+            embd_dim = 512,  # output feat channel of the embedding network
             embd_with_ln = True,  # attach layernorm to embedding network
             fpn_dim = 512,  # feature dim on FPN,
             sgp_mlp_dim = 1024,  # the numnber of dim in SGP
