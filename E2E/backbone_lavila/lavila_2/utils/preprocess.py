@@ -6,7 +6,7 @@
 
 import csv
 
-from lavila.models.tokenizer import MyBertTokenizer, MyDistilBertTokenizer, MyGPT2Tokenizer, SimpleTokenizer
+from backbone_lavila.lavila_2.models.tokenizer import MyBertTokenizer, MyDistilBertTokenizer, MyGPT2Tokenizer, SimpleTokenizer
 
 
 def generate_label_map(dataset):
