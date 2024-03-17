@@ -2,8 +2,12 @@ import torch
 import json 
 import os 
 import numpy as np
+import h5py
+from PIL import Image
+import io
 
 from torch.utils.data import Dataset
+from E2E.backbone_lavila.download_videos_and_convert_to_tensor.rgb_to_tensor.image_to_tensor_h5 import load_images_from_hdf5
 
 class EpicKitchenLoader(Dataset):
 
@@ -17,7 +21,7 @@ class EpicKitchenLoader(Dataset):
         self.default_fps = default_fps
         self.num_classes = num_classes
         self.label_dict = None
-
+        self.feature_stride = 8
 
         dict_db, label_dict = self._load_json_db(self.json_file)
         self.label_dict = label_dict
@@ -108,7 +112,7 @@ class EpicKitchenLoader(Dataset):
 
             return dict_db, label_dict
     
-    def load_images_from_hdf5(input_hdf5_file):
+    def load_images_from_hdf5(self, input_hdf5_file):
 
         images_dict = {}
         with h5py.File(input_hdf5_file, 'r') as hf:
@@ -116,7 +120,7 @@ class EpicKitchenLoader(Dataset):
                  images_dict[key] = Image.open(io.BytesIO(np.array(hf[key])))
         return images_dict
    
-    def load_video_from_directory(directory):
+    def load_video_from_directory(self, directory):
 
         stacked_images = []
         for filename in os.listdir(directory):
@@ -135,9 +139,9 @@ class EpicKitchenLoader(Dataset):
         video_item = self.data_list[idx]  #lista P01_01, P01_03, ecc..
         participant = video_item.split('_')
 
-        video_folder = f'{self.feature_folder} / {participant} / {video_item}'
+        video_folder = f'{self.feature_folder} / {participant} / {participant}_{video_item}'
 
-        video_tensor = load_video_from_directory(video_folder)
+        video_tensor = self.load_video_from_directory(video_folder)
 
         # convert time stamp (in second) into temporal feature grids
         # ok to have small negative values here
@@ -156,7 +160,7 @@ class EpicKitchenLoader(Dataset):
                      'labels'          : labels,     # N
                      'fps'             : video_item['fps'],
                      'duration'        : video_item['duration'],
-                     'feat_stride'     : feat_stride,
+                     'feat_stride'     : self.feat_stride,
                      'feat_num_frames' : self.num_frames}
   
         return  data_dict   
