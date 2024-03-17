@@ -139,8 +139,9 @@ class EpicKitchenLoader(Dataset):
         video_id = video_item['id']
         participant = video_id.split('_')[0]
         video_id = video_id.split('_')[1]
+        print(participant, video_id)
 
-        video_folder = f'{self.feature_folder} / {participant} / {participant}_{video_id}'
+        video_folder = f'{self.feature_folder}/{participant}/{participant}_{video_id}'
 
         video_tensor = self.load_video_from_directory(video_folder)
 
