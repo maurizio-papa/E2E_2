@@ -138,7 +138,7 @@ class EpicKitchenLoader(Dataset):
         video_item = self.data_list[idx]  #lista P01_01, P01_03, ecc..
         video_id = video_item['id']
         participant = video_id.split('_')[0]
-        video_id = video_item.split('_')[1]
+        video_id = video_id.split('_')[1]
 
         video_folder = f'{self.feature_folder} / {participant} / {participant}_{video_id}'
 
