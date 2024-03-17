@@ -6,6 +6,7 @@ from detector.detector import load_detector
 class TAL_model(torch.nn.Module):
 
     def __init__(self, chunk_size, sampling_ratio):
+        super(TAL_model, self).__init__()
         self.chunk_size = chunk_size
         self.sampling_ratio = sampling_ratio
           
