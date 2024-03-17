@@ -63,4 +63,4 @@ def train(epochs = 8):
 
 
 if __name__ == "__main__":
-    train('config.yaml')
+    train(8)
