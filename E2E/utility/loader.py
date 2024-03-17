@@ -7,7 +7,6 @@ from PIL import Image
 import io
 
 from torch.utils.data import Dataset
-from E2E.backbone_lavila.download_videos_and_convert_to_tensor.rgb_to_tensor.image_to_tensor_h5 import load_images_from_hdf5
 
 class EpicKitchenLoader(Dataset):
 
@@ -126,7 +125,7 @@ class EpicKitchenLoader(Dataset):
         for filename in os.listdir(directory):
             if filename.endswith(".h5"):
                 file_path = os.path.join(directory, filename)
-                images_dict = load_images_from_hdf5(file_path)
+                images_dict = self.load_images_from_hdf5(file_path)
                 for key, value in images_dict.items():
                     stacked_images.append(value)
         stacked_tensor = torch.tensor(stacked_images)  # Directly stack the images into a tensor
