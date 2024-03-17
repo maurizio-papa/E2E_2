@@ -18,11 +18,12 @@ def train_one_epoch(model, optimizer, epoch,  scheduler, data_loader):
     max_iteration = len(data_loader)
 
     for video_data in enumerate(data_loader):
-
+        print(video_data)
         video_data = video_data.to(DEVICE)
 
         # stage 1: sequentially forward the backbone
         video_feat = model(video_data['feats'], stage=1)
+        print(video_feat)
 
         # stage 2: forward and backward the detector
         video_feat.requires_grad = True
