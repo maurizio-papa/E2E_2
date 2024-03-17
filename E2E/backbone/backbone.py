@@ -44,7 +44,7 @@ def load_backbone(ckpt_path):
         use_quick_gelu=True,
         project_embed_dim=old_args.project_embed_dim,
         pretrain_zoo= 'open_clip',
-        pretrain_path= None,
+        pretrain_path= '/tesi/avion_pretrain_lavila_vitb_best.pt',
     )
     model.logit_scale.requires_grad = False
 
