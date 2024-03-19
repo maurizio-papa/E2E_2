@@ -85,8 +85,8 @@ def make_optimizer(model, optimizer_config):
             elif pn.endswith('rel_pe'):
                 # corner case for relative position encoding
                 no_decay.add(fpn)
-            elif p.ndim < 2 or 'bias' in pn or 'ln' in pn or 'bn' in pn:
-                 no_decay.add(p)
+           # elif p.ndim < 2 or 'bias' in pn or 'ln' in pn or 'bn' in pn:
+           #      no_decay.add(p)
         else:
             decay.add(p)
 
